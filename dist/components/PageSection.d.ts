@@ -2,6 +2,8 @@ interface PageSectionProps {
     vertical?: boolean;
     light?: boolean;
     dark?: boolean;
+    top?: boolean;
+    bottom?: boolean;
     centerText?: boolean;
     clip?: boolean;
     height?: "full" | "fit" | string | number;
@@ -13,6 +15,7 @@ interface PageSectionProps {
     scrollBottom?: string | number;
     fontScale?: number;
     bgColor?: number | string | [string | number, string | number] | [string, string | number, string | number];
+    radius?: string | number;
     className?: string;
     style?: React.CSSProperties;
     id?: string;
