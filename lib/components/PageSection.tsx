@@ -113,7 +113,7 @@ const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap,
 
     const outerStyle : React.CSSProperties = {
         position: z ? "relative" : undefined,
-        minHeight: minHeight ?? height === "full" ? "100dvh" : height === "fit" ? "fit-content" : "unset",
+        minHeight: minHeight ? minHeight : (height === "full" ? "100dvh" : (height === "fit" ? "fit-content" : "unset")),
         height: typeof height === "number" ? `${height}px` : height !== "full" && height !== "fit" ? height : undefined,
         fontSize: fontScale ? `calc(100% * ${fontScale})` : undefined,
         background: Array.isArray(bgColor) ? (bgColor.length === 2 ? 'linear-gradient( to bottom,' + bgColor[0] + ' 0%, '+ bgColor[0] + ' 50%, ' + bgColor[1] + ' 50%, ' + bgColor[1] + ' 100%)' : (bgColor.length === 3 ? 'linear-gradient( to bottom,' + bgColor[1] + ' 0%, '+ bgColor[1] + ' ' + bgColor[0] + ', ' + bgColor[2] + ' ' + bgColor[0] + ', ' + bgColor[2] + ' 100%)' : undefined)) : bgColor,
