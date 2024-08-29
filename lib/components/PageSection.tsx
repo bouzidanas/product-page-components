@@ -112,7 +112,7 @@ const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap,
     bgColor = bgColor ?? "transparent";
 
     const outerStyle : React.CSSProperties = {
-        position: "relative",
+        position: z ? "relative" : undefined,
         minHeight: minHeight ?? height === "full" ? "100dvh" : height === "fit" ? "fit-content" : "unset",
         height: typeof height === "number" ? `${height}px` : height !== "full" && height !== "fit" ? height : undefined,
         fontSize: fontScale ? `calc(100% * ${fontScale})` : undefined,
