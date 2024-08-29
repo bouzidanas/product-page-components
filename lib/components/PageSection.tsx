@@ -118,7 +118,6 @@ const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap,
         alignItems: top ? "flex-start" : bottom ? "flex-end" : undefined, 
         scrollMarginBottom: scrollBottom,
         borderRadius: radius,
-
         overflow: clip ? "hidden" : undefined
     }
     const innerStyle : React.CSSProperties = {
