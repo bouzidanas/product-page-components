@@ -58,13 +58,14 @@ interface PageSectionProps {
     scrollBottom?: string | number;
     fontScale?: number;
     bgColor?: number | string | [string | number, string | number] | [string, string | number, string | number];
+    radius?: string | number;
     className?: string;
     style?: React.CSSProperties;
     id?: string;
     children?: React.ReactNode | React.ReactNode[];
 }
 
-const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap, padding, bgColor, scrollBottom, scrollTop, vertical, light, dark, centerText, clip, maxWidth, maxHeight, fontScale, className, style, id, children } : PageSectionProps, ref) => {
+const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap, padding, bgColor, scrollBottom, scrollTop, vertical, light, dark, centerText, clip, maxWidth, maxHeight, fontScale, radius, className, style, id, children } : PageSectionProps, ref) => {
 
     const pageContext = useContext(PageContext);
 
@@ -113,6 +114,7 @@ const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap,
         padding: padding,
         scrollMarginTop: scrollTop,
         scrollMarginBottom: scrollBottom,
+        borderRadius: radius,
         overflow: clip ? "hidden" : undefined
     }
     const innerStyle : React.CSSProperties = {
