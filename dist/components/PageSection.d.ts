@@ -8,7 +8,9 @@ interface PageSectionProps {
     clip?: boolean;
     height?: "full" | "fit" | string | number;
     maxHeight?: "full" | string | number;
+    minHeight?: "full" | string | number;
     maxWidth?: "full" | string | number;
+    z?: number;
     gap?: "none" | "small" | "medium" | "large" | string | number;
     padding?: "none" | "small" | "medium" | "large" | string | number;
     scrollTop?: string | number;

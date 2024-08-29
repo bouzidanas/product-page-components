@@ -6,6 +6,7 @@ interface PageProps {
     centerText?: boolean;
     height?: "full" | "fit" | string | number;
     maxHeight?: "full" | string | number;
+    minHeight?: "full" | string | number;
     maxWidth?: "full" | string | number;
     gap?: "none" | "small" | "medium" | "large" | string | number;
     padding?: "none" | "small" | "medium" | "large" | string | number;
@@ -18,5 +19,5 @@ interface PageProps {
     style?: React.CSSProperties;
     children?: React.ReactNode | React.ReactNode[];
 }
-declare const Page: ({ height, gap, padding, bgColor, vertical, light, dark, bgColorSet, centerText, maxHeight, maxWidth, scrollTop, scrollBottom, fontScale, className, style, children }: PageProps) => import("react/jsx-runtime").JSX.Element;
+declare const Page: ({ height, gap, padding, bgColor, vertical, light, dark, bgColorSet, centerText, maxHeight, minHeight, maxWidth, scrollTop, scrollBottom, fontScale, className, style, children }: PageProps) => import("react/jsx-runtime").JSX.Element;
 export default Page;

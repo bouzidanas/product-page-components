@@ -1,7 +1,7 @@
-import { jsx as l } from "react/jsx-runtime";
-import { createContext as v } from "react";
-const C = v({}), h = ({ height: t = "fit", gap: e = "1.3rem", padding: r = "0", bgColor: o = "transparent", vertical: a, light: n, dark: m, bgColorSet: s, centerText: f, maxHeight: i, maxWidth: p, scrollTop: x, scrollBottom: c, fontScale: u, className: P, style: d, children: g }) => /* @__PURE__ */ l(C.Provider, { value: { height: t, vertical: a, light: n, dark: m, centerText: f, maxHeight: i, maxWidth: p, gap: e, padding: r, scrollTop: x, scrollBottom: c, fontScale: u, bgColor: o, bgColorSet: s, className: P, style: d }, children: g });
+import { jsx as v } from "react/jsx-runtime";
+import { createContext as C } from "react";
+const j = C({}), k = ({ height: t = "fit", gap: e = "1.3rem", padding: r = "0", bgColor: o = "transparent", vertical: a, light: n, dark: m, bgColorSet: s, centerText: f, maxHeight: i, minHeight: p, maxWidth: x, scrollTop: c, scrollBottom: u, fontScale: P, className: d, style: g, children: l }) => /* @__PURE__ */ v(j.Provider, { value: { height: t, vertical: a, light: n, dark: m, centerText: f, maxHeight: i, minHeight: p, maxWidth: x, gap: e, padding: r, scrollTop: c, scrollBottom: u, fontScale: P, bgColor: o, bgColorSet: s, className: d, style: g }, children: l });
 export {
-  C as PageContext,
-  h as default
+  j as PageContext,
+  k as default
 };

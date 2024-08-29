@@ -53,7 +53,9 @@ interface PageSectionProps {
     clip?: boolean;
     height?: "full" | "fit" | string | number;
     maxHeight?: "full" | string | number;
+    minHeight?: "full" | string | number;
     maxWidth?: "full" | string | number;
+    z?: number;
     gap?: "none" | "small" | "medium" | "large" | string | number;
     padding?: "none" | "small" | "medium" | "large" | string | number;
     scrollTop?: string | number;
@@ -67,7 +69,7 @@ interface PageSectionProps {
     children?: React.ReactNode | React.ReactNode[];
 }
 
-const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap, padding, bgColor, scrollBottom, scrollTop, vertical, light, dark, centerText, clip, maxWidth, maxHeight, fontScale, radius, top, bottom, className, style, id, children } : PageSectionProps, ref) => {
+const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap, padding, bgColor, scrollBottom, scrollTop, vertical, light, dark, centerText, clip, maxWidth, maxHeight, minHeight, z, fontScale, radius, top, bottom, className, style, id, children } : PageSectionProps, ref) => {
 
     const pageContext = useContext(PageContext);
 
@@ -85,6 +87,7 @@ const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap,
         centerText = centerText ?? pageContext.centerText;
         maxWidth = maxWidth ?? pageContext.maxWidth;
         maxHeight = maxHeight ?? pageContext.maxHeight;
+        minHeight = minHeight ?? pageContext.minHeight;
         fontScale = fontScale ?? pageContext.fontScale;
         className = className ?? pageContext.className;
         style = style ?? pageContext.style;
@@ -109,7 +112,7 @@ const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap,
     bgColor = bgColor ?? "transparent";
 
     const outerStyle : React.CSSProperties = {
-        minHeight: height === "full" ? "100dvh" : height === "fit" ? "fit-content" : "unset",
+        minHeight: minHeight ?? height === "full" ? "100dvh" : height === "fit" ? "fit-content" : "unset",
         height: typeof height === "number" ? `${height}px` : height !== "full" && height !== "fit" ? height : undefined,
         fontSize: fontScale ? `calc(100% * ${fontScale})` : undefined,
         background: Array.isArray(bgColor) ? (bgColor.length === 2 ? 'linear-gradient( to bottom,' + bgColor[0] + ' 0%, '+ bgColor[0] + ' 50%, ' + bgColor[1] + ' 50%, ' + bgColor[1] + ' 100%)' : (bgColor.length === 3 ? 'linear-gradient( to bottom,' + bgColor[1] + ' 0%, '+ bgColor[1] + ' ' + bgColor[0] + ', ' + bgColor[2] + ' ' + bgColor[0] + ', ' + bgColor[2] + ' 100%)' : undefined)) : bgColor,
@@ -118,6 +121,7 @@ const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap,
         alignItems: top ? "flex-start" : bottom ? "flex-end" : undefined, 
         scrollMarginBottom: scrollBottom,
         borderRadius: radius,
+        zIndex: z,
         overflow: clip ? "hidden" : undefined
     }
     const innerStyle : React.CSSProperties = {

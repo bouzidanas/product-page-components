@@ -9,6 +9,7 @@ interface PageProps {
     centerText?: boolean;
     height?: "full" | "fit" | string | number;
     maxHeight?: "full" | string | number;
+    minHeight?: "full" | string | number;
     maxWidth?: "full" | string | number;
     gap?: "none" | "small" | "medium" | "large" | string | number;
     padding?: "none" | "small" | "medium" | "large" | string | number;
@@ -22,9 +23,9 @@ interface PageProps {
     children?: React.ReactNode | React.ReactNode[];
 }
 
-const Page = ({ height = "fit", gap = "1.3rem", padding = "0", bgColor = "transparent", vertical, light, dark, bgColorSet, centerText, maxHeight, maxWidth, scrollTop, scrollBottom, fontScale, className, style, children } : PageProps) => {
+const Page = ({ height = "fit", gap = "1.3rem", padding = "0", bgColor = "transparent", vertical, light, dark, bgColorSet, centerText, maxHeight, minHeight, maxWidth, scrollTop, scrollBottom, fontScale, className, style, children } : PageProps) => {
     return (
-        <PageContext.Provider value={{ height, vertical, light, dark, centerText, maxHeight, maxWidth, gap, padding, scrollTop, scrollBottom, fontScale, bgColor, bgColorSet, className, style }}>
+        <PageContext.Provider value={{ height, vertical, light, dark, centerText, maxHeight, minHeight, maxWidth, gap, padding, scrollTop, scrollBottom, fontScale, bgColor, bgColorSet, className, style }}>
             {children}
         </PageContext.Provider>
     )
