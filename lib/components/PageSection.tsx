@@ -82,8 +82,8 @@ const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(({ height, gap,
         scrollBottom = scrollBottom ?? pageContext.scrollBottom;
         scrollTop = scrollTop ?? pageContext.scrollTop;
         vertical = vertical ?? pageContext.vertical;
-        light = light ?? dark ? undefined : pageContext.light;
-        dark = dark ?? light ? undefined : pageContext.dark;
+        light = light ?? dark === undefined ? pageContext.light : undefined;
+        dark = dark ?? light === undefined ? pageContext.dark : undefined;
         centerText = centerText ?? pageContext.centerText;
         maxWidth = maxWidth ?? pageContext.maxWidth;
         maxHeight = maxHeight ?? pageContext.maxHeight;
